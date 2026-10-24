@@ -1,0 +1,118 @@
+/* ═══════════════════════════════════════════════════════════════════
+   DocXtract — Global mobile-first styles
+   Breakpoints: base (mobile) → sm 640 → md 768 → lg 1024 → xl 1280
+   ═══════════════════════════════════════════════════════════════════ */
+
+:root {
+  --pri: #6366f1;
+  --pri-dark: #4f46e5;
+  --pri-light: #818cf8;
+  --pri-glow: rgba(99, 102, 241, 0.4);
+
+  --bg: #0b0d14;
+  --bg-soft: #11131d;
+  --card: #161927;
+  --card-hover: #1c2030;
+  --border: #262b3d;
+  --border-soft: #1e2230;
+
+  --text: #f1f3f9;
+  --muted: #9aa1b5;
+  --faint: #5c6478;
+
+  --ok: #34d399;
+  --warn: #fbbf24;
+  --err: #f87171;
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+
+  --r-sm: 8px;
+  --r: 14px;
+  --r-lg: 20px;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 12px 40px var(--pri-glow);
+
+  --touch: 48px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(99, 102, 241, 0.12), transparent 70%),
+    radial-gradient(40% 40% at 90% 100%, rgba(129, 140, 248, 0.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 16px;       /* CRITICAL: <16px triggers zoom on iOS */
+  color: var(--text);
+}
+
+button, a[role="button"], .touch { min-height: var(--touch); }
+
+:focus-visible {
+  outline: 2px solid var(--pri-light);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--faint); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes shimmer { 0% { background-position: -400px 0; } 100% { background-position: 400px 0; } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+.fade-up { animation: fadeUp 0.4s ease both; }
+.fade-in { animation: fadeIn 0.3s ease both; }
+.scale-in { animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both; }
