@@ -1,0 +1,44 @@
+# Dependências e artefatos gerados
+**/node_modules/
+**/dist/
+**/build/
+**/.vite/
+**/.cache/
+**/coverage/
+
+# Credenciais em qualquer pasta; só modelos vazios podem entrar no Git
+**/.env
+**/.env.*
+**/*.env
+**/*.env.*
+!**/.env.example
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/service-account*.json
+**/credentials*.json
+**/.npmrc
+
+# Documentos, resultados de extração e arquivos privados
+**/private-output/
+**/uploads/
+**/exports/
+**/private/
+**/tmp/
+**/*.pdf
+**/*.docx
+**/*.xlsx
+**/*.xls
+**/*.csv
+**/*.checkpoint.json
+**/DocXtract_lote.*
+**/*.log
+**/*.log.*
+**/*.zip
+
+# Arquivos locais do sistema/editor
+**/.DS_Store
+**/Thumbs.db
+**/.vscode/
+**/.idea/
